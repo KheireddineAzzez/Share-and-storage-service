@@ -1,0 +1,64 @@
+
+
+
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile>
+        <ng-container *ngTemplateOutlet=" barChartData.length>0?uploadchart:NoDatayet ">
+        </ng-container>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <ng-container *ngTemplateOutlet=" barch_deletedata.length>0?Deleted_chart:NoDatayet ">
+        </ng-container>
+
+      </mat-grid-tile>
+      <mat-grid-tile>For Downloaded Datas</mat-grid-tile>
+      <mat-grid-tile> For </mat-grid-tile>
+    </mat-grid-list>
+
+
+
+
+
+
+
+
+  <ng-template #uploadchart >
+  <div style="width:100%;">
+  <div style="display: block">
+    <canvas baseChart
+
+
+    [datasets]="barChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins" >
+    </canvas>
+  </div>
+</div>
+</ng-template>
+
+<ng-template #Deleted_chart >
+  <div style="width:100%;">
+  <div style="display: block">
+    <canvas baseChart
+
+
+    [datasets]="barch_deletedata"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="Delete_chart_color"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins" >
+    </canvas>
+  </div>
+</div>
+</ng-template>
+
+
+<ng-template #NoDatayet>
+<mat-spinner [diameter]='30'></mat-spinner>
+</ng-template>

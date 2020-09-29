@@ -1,0 +1,6 @@
+
+<drag-scroll >
+  <div *ngFor="let item of group"  drag-scroll-item>
+  <app-cardgroupview (event_delet)='remover_group($event)' [group]='item'></app-cardgroupview>
+ </div>
+ </drag-scroll>

@@ -1,0 +1,39 @@
+
+
+<div style="display: flex; flex: 1; flex-direction: column;">
+
+<div style=" flex: 0.5;">
+<h1>joined Groups</h1>
+
+
+</div>
+<mat-divider></mat-divider>
+
+<div style=" flex: 0.5;">
+<h1>private Groups</h1>
+
+<ng-container [ngTemplateOutlet]="Group==undefined?spinner:privategroup" >
+
+</ng-container>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<ng-template #spinner>
+
+<mat-spinner [diameter]='50'></mat-spinner>
+</ng-template>
+<ng-template #publicgroup>
+<app-publicview [group]='Group.public_group'></app-publicview>
+
+</ng-template>
+<ng-template #privategroup>
+  <app-privateview [group]='Group.private_group'></app-privateview>
+
+</ng-template>

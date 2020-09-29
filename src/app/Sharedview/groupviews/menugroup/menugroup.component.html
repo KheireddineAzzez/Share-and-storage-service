@@ -1,0 +1,22 @@
+<button mat-icon-button  #trr="matMenuTrigger" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon  >widgets</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item >
+    <mat-icon>person_add
+    </mat-icon>
+    <span>Invite</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item (click)='removegroup()'>
+    <mat-icon>delete</mat-icon>
+    <span>Delete group</span>
+  </button>
+
+  <button mat-menu-item (click)='rename_group()'>
+    <mat-icon>edit</mat-icon>
+    <span>Rename</span>
+  </button>
+
+</mat-menu>

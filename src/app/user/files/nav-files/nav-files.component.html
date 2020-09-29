@@ -1,0 +1,33 @@
+<div><nav class="navbar navbar-expand-lg navbar-light ; " style="background-color: white;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" *ngIf="show_menu.addfolder">
+        <button mat-button (click)='open_window()'> <mat-icon>add</mat-icon> New Folder</button>     </li>
+      <li class="nav-item ">
+        <li class="nav-item dropdown" *ngIf="show_menu.upload">
+          <button class="nav-link dropdown-toggle"  data-toggle="dropdown" mat-button> <mat-icon>cloud_upload</mat-icon> upload </button>
+
+          <div class="dropdown-menu">
+            <button mat-button style="text-align: left;" (click)="open_file_upload()" class="dropdown-item">File</button>
+
+          </div>
+        </li>
+       <li class="nav-item ">
+<ng-template [ngIf]='this.deleted_file.length>0'>
+
+  <button mat-button style="text-align: left;" (click)="delete_files()" > <img src="https://img.icons8.com/fluent/30/000000/empty-trash.png"> <b>Delete</b></button>
+  <button mat-button style="text-align: left;" (click)='Zipp_files()' ><img src="https://img.icons8.com/fluent/30/000000/download.png">  &nbsp;<b>Download</b></button>
+
+</ng-template>
+
+       </li>
+    </ul>
+
+  </div>
+</nav>
+</div>
+

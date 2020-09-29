@@ -1,0 +1,17 @@
+<body style="background-color: white; padding: 12px;">
+<br>
+<br>
+  <app-nav-files [show_menu]="Menu_show" (files_deleted)='deleted($event)' [deleted_file]='Files_destruction' (Create_folder)='create_folder($event)'(create_files)='create_file($event)' ></app-nav-files>
+  <br>
+<mat-list style="margin-top: 12px;">
+
+   <mat-list-item><h1>Files</h1> </mat-list-item>
+   <mat-list-item><h3><b>{{(path+"").replace('acceuil','Home')}}</b></h3> </mat-list-item>
+
+   <mat-divider></mat-divider>
+
+
+</mat-list>
+<app-datatable  [path]="" [Files_are_complete_deleted]="file_even_delete"  (event_delete)='add_delete_files($event)' [Folder_created]='even' [File_created]='file_even'></app-datatable>
+
+</body>

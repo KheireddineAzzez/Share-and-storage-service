@@ -1,0 +1,40 @@
+<mat-card style=" background-color: transparent; width: 80%; margin: 10%;  border-radius: 0px;">
+  <mat-card-header style="margin-left: 39%;"  >
+    <mat-card-title >Login</mat-card-title>
+
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+<br>
+
+      <mat-form-field appearance="fill" class="example-full-width" style="width: 100%;">
+        <mat-label>Email</mat-label>
+
+        <input matInput name="email_"  #email_='ngModel' [ngStyle]="" [(ngModel)]="Email" placeholder=" Email">
+ <mat-hint> <div class="alert-danger" *ngIf="!error_auth">{{email_message_error}}</div></mat-hint>
+      </mat-form-field> <br>
+<br>
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-hint> <div name="password2" class="alert-danger" *ngIf="!error_password">{{password_message_error}}</div></mat-hint>
+
+      </mat-form-field>
+
+   </mat-card-content>
+
+<mat-card-actions align='center' style="padding: 5%;">
+  <button class="extended-fab-button" mat-fab color="warn" (click)='login()'  >
+    <mat-icon>login</mat-icon>  <span class="extended-fab-button__text">Login</span>
+
+  </button>
+
+  <br> <br>  <br>
+
+</mat-card-actions>
+
+
+  </mat-card>

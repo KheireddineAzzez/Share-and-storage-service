@@ -1,0 +1,23 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button (click)='View_file()' mat-menu-item>
+    <mat-icon>cloud_download</mat-icon>
+    <span>Download</span>
+  </button>
+  <button mat-menu-item (click)='open_mail_sender()'>
+    <mat-icon>share</mat-icon>
+
+    <span>share</span>
+  </button>
+  <button mat-menu-item (click)='open_link_file()' >
+    <mat-icon>   link  </mat-icon>
+    <span>copy link</span>
+  </button>
+<mat-divider> </mat-divider>
+<button mat-menu-item (click)="open_rename()" >
+  <mat-icon>   edit  </mat-icon>
+  <span>Rename</span>
+</button>
+</mat-menu>

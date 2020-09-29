@@ -1,0 +1,54 @@
+ <ng-container [ngTemplateOutlet]="user_competed_uploaded?spinner:card_view"></ng-container>
+ <ng-template #card_view>
+ <mat-card style="width: 300px;" >
+
+<mat-card-header >
+<img mat-card-avatar  [src]='"/assets/images/imagegroup.png"'>
+&nbsp;
+<div style="display: flex; flex: 1; justify-content: flex-end;"  >
+ <app-menugroup  (event_delete)='delete_group($event)' [group]='group' ></app-menugroup>
+</div>
+<mat-card-title >
+  <span>{{group.goroup_name}}
+  </span>
+</mat-card-title>
+
+</mat-card-header>
+<mat-card-content >
+<br>
+<br>
+
+<div style="display: flex;  justify-content: flex-end;">
+
+  <div *ngFor="let item of user_memebers.slice(0,2)" >
+
+<app-menuperson [user]='item'></app-menuperson>
+
+    </div>
+<ng-container [ngTemplateOutlet]="user_memebers.length>=3?membersmorethan3: empty" ></ng-container>
+</div>
+
+</mat-card-content>
+<mat-card-actions>
+
+</mat-card-actions>
+
+</mat-card>
+</ng-template>
+<!-- Templates-->
+  <ng-template #spinner [ngIf]='user_competed_uploaded'>
+</ng-template>
+
+<ng-template #membersmorethan3 >
+
+    <button mat-button [matMenuTriggerFor]="menu">  <mat-icon  [matBadge]='user_memebers.length -2' matBadgeColor="green">linear_scale</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <div *ngFor="let item of user_memebers.slice(2,user_memebers.length)" mat-menu-item [matMenuTriggerFor]="menu2"  >
+
+        <app-menuperson    #menu2 [user]='item'></app-menuperson>
+
+            </div>    </mat-menu>
+</ng-template>
+<ng-template #empty>
+
+</ng-template>

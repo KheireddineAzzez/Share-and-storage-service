@@ -1,0 +1,6 @@
+   <div style="justify-content: space-around; display: flex; flex-direction: column;justify-items: space-around; padding-bottom: 3%;">
+    <div style="justify-content: center;display: flex;flex: 0.3;">
+    <img src="https://img.icons8.com/office/60/000000/email.png"/></div>
+    <app-ships-email [Emails]="Emails" ></app-ships-email>
+    <button (click)="envoyer()"  [disabled]=" Emails.length>=1?false:true   " mat-button style="margin-top: 10%;">Send</button>
+  </div>

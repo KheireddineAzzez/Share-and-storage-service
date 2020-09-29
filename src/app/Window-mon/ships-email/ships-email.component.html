@@ -1,0 +1,19 @@
+
+  <div>
+  <mat-form-field class="example-chip-list" style="width: 98%;" >
+  <mat-chip-list #chipList aria-label="Email selection">
+    <mat-chip *ngFor="let email of Emails" [selectable]="true"
+             [removable]="true" (removed)="remove(email)">
+      {{email}}
+      <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+    </mat-chip>
+
+    <input matInput placeholder="Add email..."
+           [matChipInputFor]="chipList"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           (matChipInputTokenEnd)="add($event) " class="example-full-width">
+
+
+  </mat-chip-list>
+</mat-form-field>
+</div>

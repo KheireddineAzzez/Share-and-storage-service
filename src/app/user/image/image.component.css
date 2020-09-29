@@ -1,0 +1,58 @@
+.new-button {
+  display: inline-block;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #9c27b0;
+  font-size: 16px;
+  color: #fff;
+}
+input[type="file"] {
+position: absolute;
+z-index: -1;
+top: 6px;
+left: 0;
+font-size: 15px;
+color: rgb(153,153,153);
+}
+.button-wrap {
+position: relative;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-drawer,
+mat-sidenav-content {
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+}
+cdk-virtual-scroll-viewport{
+}
+mat-drawer {
+  width: 250px;
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);}
+cdk-virtual-scroll-viewport::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #32465a;
+}
+
+cdk-virtual-scroll-viewport::-webkit-scrollbar {
+  width: 12px;
+  background-color: #32465a;
+  border-radius: 10px;
+}
+
+cdk-virtual-scroll-viewport::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 148, 62, 0.3);
+  background-color: rgb(238, 169, 79);
+}
+.mat-icon-button {
+  margin: 40px;
+}
+.mat-icon{
+  font-size:50px;
+
+}

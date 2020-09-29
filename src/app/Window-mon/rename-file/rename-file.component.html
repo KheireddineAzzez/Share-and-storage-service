@@ -1,0 +1,11 @@
+  <div style="flex: 1; display: flex; justify-content: center;align-content: center;flex-direction: column; align-items: center;">
+    <h3>Edit your File name</h3>
+    <form class="example-form" style="align-content: center;justify-content: center; align-self: center;flex-direction: column;flex: 1;display: flex;" >
+      <mat-form-field class="example-full-width">
+        <mat-label>Edit Name</mat-label>
+        <input matInput required pattern="[a-z]{4,50}" name="filename" #file_name='ngModel' placeholder="Ex." name='folder name' (input)='verify_object_name()' [(ngModel)]='this.Change_name'>
+        <mat-error *ngIf="file_name.invalid"> File length name >=4 Or Symbols are not allowd</mat-error>
+      </mat-form-field>
+<button [disabled]="file_name.invalid || ! valid_name " (click)="on_close()" style="background-image: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);" mat-button>Change</button>
+
+    </form>  </div>

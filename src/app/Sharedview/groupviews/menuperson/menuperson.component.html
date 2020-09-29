@@ -1,0 +1,7 @@
+<button   mat-icon-button #overmenu="matMenuTrigger"  [matMenuTriggerFor]="menu2"><img style="width: 30px; height: 30px;" [src]='user.image'></button>
+ <mat-menu #menu2="matMenu" style="width: 100px;">
+ <h3  ><mat-icon>face</mat-icon> {{user.user_name}}</h3>
+ <h3  >   <mat-icon>alternate_email</mat-icon> {{user.email}}</h3>
+<mat-divider></mat-divider>
+ <button mat-menu-item><mat-icon>unsubscribe</mat-icon>Unsubscribe</button>
+ </mat-menu>

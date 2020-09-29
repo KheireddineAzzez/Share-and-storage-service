@@ -1,0 +1,64 @@
+
+ <mat-drawer-container class="example-container"  >
+
+    <mat-drawer [mode]="'side'" [opened]='drawer_open' [position]='"end"'>
+   <app-tablogc></app-tablogc>
+
+    </mat-drawer>
+
+    <mat-drawer-content>
+
+    <mat-grid-list cols="1" rowHeight="4:2 " style="background-color: transparent;">
+
+       <mat-grid-tile-header  style="background-color: transparent;"> <app-nav-home (hide_side_nav)="openside($event)"></app-nav-home>  </mat-grid-tile-header>
+
+
+
+<mat-grid-list  cols="1" rowHeight="400" style=" background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);">
+
+   <mat-grid-tile style=" background-color: tomato; border-bottom-left-radius: 30%;">
+
+  <p  class="bounce-in-fwd  " style="z-index: 20; margin-top: 20%; left: 35%; font-size: 90px;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"><b> SaveBag</b> </p>
+
+  <img class="bounce-in-top" style="margin-left: 1% ;margin-top: 20%;width: 100px;height: 100px;" src="https://static.thenounproject.com/png/2360124-200.png"/>
+
+
+ </mat-grid-tile>
+
+ </mat-grid-list>
+
+
+
+
+
+
+ <mat-grid-list  cols="1" rowHeight="400" style=" background-color: tomato;">
+  <mat-grid-tile style="background-image: linear-gradient(to bottom, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); border-top-right-radius: 20%;">
+
+
+    <div class="area"  style="position: absolute; z-index: 1000000;">
+      <ul class="circles">
+              <li> </li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+      </ul>
+</div >
+
+   </mat-grid-tile>
+
+
+  </mat-grid-list>
+
+
+
+</mat-grid-list>
+
+</mat-drawer-content>
+</mat-drawer-container>

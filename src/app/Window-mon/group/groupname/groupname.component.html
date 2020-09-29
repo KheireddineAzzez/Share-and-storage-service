@@ -1,0 +1,15 @@
+
+
+ <div style="flex: 1; display: flex; justify-items: center; align-items: center; justify-content: center; flex-direction: column;">
+  <h2><b>Change your group name</b></h2>
+  <br>
+  <mat-form-field appearance="legacy" >
+    <mat-label></mat-label>
+    <input (input)='nex_group_name_change()' [(ngModel)]='Group_name_change' matInput placeholder="set your new group name"  class="example-full-width">
+    <mat-icon [hidden]="!grou_name_verification"  matSuffix>group</mat-icon>
+    <mat-spinner  *ngIf="!grou_name_verification" [diameter]='20' ></mat-spinner>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+  <br>
+  <button mat-button [disabled]='Group_name_change.length<=1 ||  name_already_exist' (click)='close_pop()'> Confirm </button>
+ </div>

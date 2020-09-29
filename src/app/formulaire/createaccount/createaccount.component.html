@@ -1,0 +1,99 @@
+<mat-card style="background-color: transparent; margin: 10%;">
+<mat-card-header style="margin-left: 29%;" >
+
+
+<mat-card-title  >   Create account</mat-card-title>
+
+</mat-card-header>
+
+<mat-divider></mat-divider>
+<br>
+
+
+
+
+<mat-card-content style="display: flex; flex: 1;justify-content: center;flex-direction: column;">
+<!--    Image-->
+<div >
+<form class="form-group" #form_image='ngForm'>
+<div class="container">
+<div class="picture-container">
+<div class="picture">
+<ng-template [ngIf]='user.image==""'>
+
+<img  src="https://img.icons8.com/plasticine/100/000000/image.png" title="">
+
+
+</ng-template>
+<ng-template [ngIf]='user.image!=""' >
+<img style="width: 100px;height: 100px;" [src]='user.image'  id="wizardPicturePreview" title="">
+
+</ng-template>
+<input [ngModelOptions]="{standalone: true}" [(ngModel)]='image_up' required #image='ngModel' name='image_up'  type="file" id="wizard-picture" (change)='get_image($event)'>
+</div>
+<h6 class="">Choose Picture</h6>
+
+</div>
+</div></form>
+</div>
+<br>
+
+<!--    Image-->
+
+<form class="form-group"  #form_create='ngForm' style="margin-left: 30%;" >
+
+<mat-form-field  appearance="fill" class="example-full-width" >
+<mat-label>User_name</mat-label>
+<input [ngModelOptions]="{standalone: true}"  matInput required minlength='4' type="text" name="username" #username='ngModel' [(ngModel)]="user.user_name"    placeholder="username">
+<mat-hint ><div  *ngIf="username.errors && (username.touched  ) ">Verifier votre username</div>
+</mat-hint>
+</mat-form-field>
+<br>
+
+
+<mat-form-field class="example-full-width"  appearance="fill" >
+<mat-label>Email</mat-label>
+<input  matInput required minlength='4' (input)='check_email_validation()' type="email" name="email_" #email_='ngModel' [(ngModel)]="user.email"    placeholder="Ex. pat@example.com">
+<mat-hint ><div  *ngIf="email_.errors && (email_.touched  ) || !email_valid" style="color: red;">Verifier votre email</div>
+</mat-hint>
+</mat-form-field><br>
+
+<mat-form-field class="example-full-width" appearance="fill">
+<mat-label>Birthday</mat-label>
+<input [ngModelOptions]="{standalone: true}" matInput [(ngModel)]='user.age' [matDatepicker]="picker">
+<mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker    #picker></mat-datepicker>
+</mat-form-field><br>
+<br>
+<mat-form-field  class="example-full-width"  appearance="fill" >
+<mat-label>Password</mat-label>
+<input  [ngModelOptions]="{standalone: true}" type="password"  matInput required minlength='4'  name="password" #password='ngModel' [(ngModel)]="user.password"    placeholder="password">
+<mat-hint ><div  *ngIf="password.errors && (password.touched  ) ">Verifier votre password</div>
+</mat-hint>
+</mat-form-field><br><br>
+
+<mat-form-field  class="example-full-width"  appearance="fill" >
+<mat-label>Password</mat-label>
+<input [ngModelOptions]="{standalone: true}" type="password"required [pattern]='user.password' matInput required minlength='4'  name="password2" #password2='ngModel' [(ngModel)]="seconde_pass"    placeholder="password">
+
+<mat-hint ><div  *ngIf="password2.errors && (password2.touched  ) ">Verifier votre password</div>
+</mat-hint>
+</mat-form-field><br><br>
+
+<mat-card-actions [align]="'center'">
+
+
+
+<button class="extended-fab-button" mat-fab color="primary" [disabled]='form_create.invalid || form_image.invalid || !email_valid' (click)="create_user()" >
+<mat-icon>create</mat-icon>  <span class="extended-fab-button__text">create Account</span>
+
+</button>
+
+</mat-card-actions>
+
+
+
+</form>
+</mat-card-content>
+
+</mat-card>

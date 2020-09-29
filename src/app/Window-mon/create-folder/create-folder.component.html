@@ -1,0 +1,22 @@
+  <div style="display: flex; flex:0.5;justify-content: center; align-items: center; padding: 15px; flex-flow: column; justify-content: space-around;">
+  <mat-card-title>Create New Folder</mat-card-title><br><br>
+    <div style="flex-direction: row; display: flex;align-self: flex-start;" >
+    <h3 ><b>Path :</b> </h3> <h3 style="align-self: flex-start;">{{data.path}}</h3></div>
+    <form class="example-form" style="flex: 0.5;" #form_f='ngForm'>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Folder name</mat-label>
+    <input (input)='change_text_verification()' [(ngModel)]="folder_name" required minlength='4' name="data" #folder='ngModel' matInput placeholder="Ex. New folder" value="" >
+<mat-error *ngIf="folder.errors"> Folder name length >=4</mat-error>
+<mat-hint style="color: red;" *ngIf="!error_"> Folder  exist </mat-hint>
+</mat-form-field>
+
+
+  <mat-card-actions [align]="'center'" style="display: flex; flex: 0.5 ;justify-content: space-around ;margin-top:4%;">
+    <button mat-raised-button  style="background-color: tomato;" (click)="close_()" [disabled]='!form_f.valid || !data.accepted '>Create one</button>
+    <button mat-raised-button  style="background-color: whitesmoke;" (click)="cancel_()" >cancel</button>
+
+  </mat-card-actions>
+</form>
+
+</div>

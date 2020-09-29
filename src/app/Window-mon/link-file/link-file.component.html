@@ -1,0 +1,68 @@
+<ng-template [ngIf]='spinner' >
+<div class="flex-container"  >
+<mat-spinner  [diameter]='40'></mat-spinner>
+
+</div>
+
+
+</ng-template>
+<ng-template [ngIf]='link_simple' >
+
+
+<div style="display: flex; justify-content: center; flex-direction: column;">
+<div style="display: flex; justify-content: center;">
+<mat-card-title><img src="https://img.icons8.com/plasticine/60/000000/check-all.png"/></mat-card-title>
+</div><br><br>
+<div style="display: flex; flex-direction: row;justify-content: center;">
+<mat-form-field >
+
+<mat-label><h3>Link</h3></mat-label>
+<input matInput type="text" readonly [(ngModel)]="Link">
+
+</mat-form-field>
+
+<button mat-button  style="background-color: rgb(163, 163, 163);height: 90%; margin-left: 5%; "  [cdkCopyToClipboard]="Link" > <mat-icon>content_copy</mat-icon></button>
+</div>
+<br>
+
+</div>
+</ng-template >
+<ng-template  [ngIf]="!spinner ">
+<mat-accordion class="example-headers-align">
+<mat-expansion-panel  #mapanel   hideToggle="true"  (opened)='open_link_timer()' (closed)="close_link_timer()" class='mat-e'>
+<mat-expansion-panel-header>
+<mat-panel-title>
+Expire Link      </mat-panel-title>
+<mat-panel-description>
+&nbsp;
+<mat-icon>date_range</mat-icon>
+
+</mat-panel-description>
+</mat-expansion-panel-header>
+
+<mat-form-field class="example-full-width" appearance="fill">
+<mat-label>Choose a date</mat-label>
+<input matInput [min]='date' [(ngModel)]='Expire_date' [matDatepicker]="picker" disabled>
+<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker disabled="false" #picker></mat-datepicker>
+</mat-form-field>
+<div style="display: flex; flex: 1;" style="width: 100%;">
+<mat-checkbox >Add email</mat-checkbox>
+
+<app-ships-email [Emails]="Emails" ></app-ships-email>
+
+
+</div>
+
+
+
+<div style="display: flex; justify-content: center;">
+<button mat-button (click)='mapanel.close()'(click)='generate_expirelink()' >Generate</button>
+
+</div>
+
+</mat-expansion-panel>
+
+
+</mat-accordion>
+</ng-template>

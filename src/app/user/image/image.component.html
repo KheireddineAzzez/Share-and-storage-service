@@ -1,0 +1,76 @@
+
+
+
+<app-nav (hide_side_nav)="openside($event)"></app-nav>
+
+
+
+      <mat-drawer-container  class="example-container" >
+        <mat-drawer #drawer [(opened)]="drawer_open" [mode]="'side'">
+          <mat-list>
+            <mat-list-item>
+          <div class='button-wrap' >
+            <label class ='new-button' for='upload'  > Select  Images</label>
+            <input  id='upload' style="display: none;" type='file' multiple (change)='add_image($event)' />
+          </div>
+        </mat-list-item>
+</mat-list>
+
+
+
+
+
+        </mat-drawer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <mat-drawer-content>
+
+
+
+
+
+
+
+
+
+
+
+          <mat-grid-list cols="1" rowHeight="4:2">
+            <mat-grid-tile-header>    </mat-grid-tile-header>
+
+<mat-grid-list  cols="1" rowHeight="400" style=" background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);">
+ <mat-grid-tile style=" background-color: tomato; border-bottom-left-radius: 30%;">
+
+
+<br>
+  <carousel  [images]="files" [loop]='true' [height]="100"  [autoplay]="true" [autoplayInterval]="1000" [width]='600' [dots]='true'>
+
+</carousel>
+ </mat-grid-tile>
+
+ </mat-grid-list>
+
+ <mat-grid-list  cols="1" rowHeight="400" style=" background-color: tomato;">
+  <mat-grid-tile style="background-image: linear-gradient(to bottom, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); border-top-right-radius: 20%;"></mat-grid-tile>
+
+  <div matRipple class="example-ripple-container mat-elevation-z4 " style="float: left; margin-left: 48%;" (click)='upload_images()' >
+    <img src="https://img.icons8.com/nolan/100/upload.png"/>
+
+   </div></mat-grid-list>
+
+
+
+</mat-grid-list>
+        </mat-drawer-content>
+      </mat-drawer-container>

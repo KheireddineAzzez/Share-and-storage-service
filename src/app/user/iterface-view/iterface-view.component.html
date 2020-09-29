@@ -1,0 +1,54 @@
+<app-nav  [Menu_hide]='Menu_nav_hide'  (hide_side_nav)="openside($event)" ></app-nav>
+
+
+  <mat-drawer-container  style="height:100%; ">
+
+
+  <mat-drawer #drawer [opened]='drawer_open' mode="side" style="display: flex;flex: 1;width: 250px;">
+
+
+
+    <div style="display: flex; flex: 0.5 ;background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); height: 30%;">
+      <div style="display: flex; flex: 1; background-color: tomato; border-bottom-right-radius:70px ;justify-content: center;  ">
+        <div class="container" style="  display: flex;  flex-direction: column;justify-content: center; align-content: center; align-items: center;">
+          <div class="picture-container">
+              <div class="picture">
+                <ng-template [ngIf]='user.image==""'>
+
+
+
+                </ng-template>
+                  <img style="width: 100px;height: 100px;" [src]='user.image'  id="wizardPicturePreview" title="">
+
+              </div>
+
+          </div>
+          <br>
+          <h3 class="">{{user.email}}</h3>
+
+      </div>
+
+      </div>
+
+    </div>
+    <div style="display: flex; flex: 0.5 ;background-color: tomato; height: 70%; ">
+      <div style="display: flex; flex: 1 ;background-image: linear-gradient(to bottom, #dfe9f3 0%, white 100%);border-top-left-radius: 120px;   justify-content: center;">
+ <mat-list style="padding-left: 30px;">
+  <br>
+   <mat-list-item>  <button mat-button [routerLink]="['Files','acceuil']" > <mat-icon  fontSet="material-icons-outlined" >folder</mat-icon> &nbsp;My Files</button></mat-list-item>
+ <mat-list-item>  <button mat-button [routerLink]="['Charts']" > <mat-icon  fontSet="material-icons-outlined" >insert_chart_outlined  </mat-icon> &nbsp;Charts</button></mat-list-item>
+ <mat-list-item>  <button mat-button [routerLink]="['groups']" > <mat-icon  fontSet="material-icons-outlined" >groups  </mat-icon> &nbsp;Groups</button></mat-list-item>
+
+   <mat-list-item>  <button (click)='hide_nave_bar()' mat-button [routerLink]="['logout']" > <mat-icon  fontSet="material-icons-outlined" >directions_run  </mat-icon> &nbsp;Logout</button></mat-list-item>
+
+ </mat-list>
+         </div>
+    </div>
+  </mat-drawer>
+
+ <mat-drawer-content >
+
+   <router-outlet ></router-outlet>
+ </mat-drawer-content>
+
+</mat-drawer-container>

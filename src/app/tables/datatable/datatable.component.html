@@ -1,0 +1,77 @@
+<br> <div style="flex: 1; display: flex; flex-direction: row; justify-content: flex-end;">
+</div>
+<mat-progress-bar *ngIf='show_data_transfert'
+class="example-margin"
+[color]="'Accent'"
+[mode]="'indeterminate'"
+[value]='10'
+
+>
+</mat-progress-bar>
+<br>
+ <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%; margin-bottom: 2%; ">
+<ng-template  [ngIf]="show_spinner==false">
+<ng-container matColumnDef="check">
+<th mat-header-cell *matHeaderCellDef > <mat-checkbox [(ngModel)]="Check_all" (click)='Check_all_file()' ></mat-checkbox>  </th>
+<td  mat-cell *matCellDef="let element">
+<mat-checkbox color='primary'  [(ngModel)]=' element.checked'  (click)='fire_delet_event(element)' ></mat-checkbox>
+
+</td>
+</ng-container>
+
+<ng-container matColumnDef="nom">
+<th mat-header-cell *matHeaderCellDef  matSort> Noun </th>
+<td mat-cell *matCellDef="let element">
+<!--                    The file image depends on the file type                  -->
+<img  *ngIf="element.type=='folder'" src="https://img.icons8.com/fluent/28/000000/folder-invoices.png">
+<img  *ngIf="element.type=='video'" src="https://img.icons8.com/fluent/30/000000/video.png">
+<img  *ngIf="element.type=='image'" src="https://img.icons8.com/fluent/30/000000/image.png">
+<img  *ngIf="element.type=='audio'" src="https://img.icons8.com/color/30/000000/audio-skimming.png">
+<img  *ngIf="element.type=='word'" src="https://img.icons8.com/color/30/000000/microsoft-word-2019--v2.png ">
+<img  *ngIf="element.type=='text'" src="https://img.icons8.com/ultraviolet/30/000000/txt.png ">
+<img  *ngIf="element.type=='zip'" src="https://img.icons8.com/ultraviolet/30/000000/zip.png ">
+<img  *ngIf="element.type=='rar'" src="https://img.icons8.com/ultraviolet/30/000000/rar.png">
+
+<!--                    The file image depends on the file type                  -->
+
+
+<button *ngIf="element.type=='folder'" mat-button [routerLink]="['Userprofile/Files/','c']" (click)="folder_acces(element.nom)" >{{(element.nom+"").replace(this.path,"")}}</button>
+<button mat-button *ngIf="element.type !='folder'">{{get_correct_folder_file_name(element.nom)}}</button>
+
+
+</td>
+</ng-container>
+<!-- menu Column -->
+<ng-container matColumnDef="menu">
+<th mat-header-cell *matHeaderCellDef>  </th>
+<td mat-cell *matCellDef="let element; let i=index">
+   <button mat-icon-button  *ngIf="element.type!='folder'"><app-menu-file [buket_name]="path" [index_number]='i' (rename_event)='rename_file($event)'  [prefix_name]='element.nom+""'></app-menu-file></button>
+   <button mat-icon-button  *ngIf="element.type=='folder'"><app-menufolder [Folder]='element' ></app-menufolder></button>  </td>
+   </ng-container>
+<!-- date Column -->
+<ng-container matColumnDef="date">
+<th mat-header-cell *matHeaderCellDef> Last modified date </th>
+<td mat-cell *matCellDef="let element"> {{element.date | date: 'medium'}} </td>
+</ng-container>
+
+
+<!-- size Column -->
+<ng-container matColumnDef="size">
+<th mat-header-cell *matHeaderCellDef> Size </th>
+
+<td mat-cell   *matCellDef="let element"              >
+<b *ngIf="element.type!='folder'">{{
+element.size>=1000?((element.size/1000+0)|number:'1.3') +"MB":(element.size+"")+"kB"
+
+}} </b>
+
+</td>
+</ng-container>
+</ng-template>
+<ng-template [ngIf]='show_spinner'>
+<mat-spinner></mat-spinner>
+</ng-template>
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
