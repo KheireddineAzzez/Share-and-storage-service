@@ -9,8 +9,8 @@ import cokieparser from 'cookie-parser'
 import filerouter from './routes/File_route'
 import  Sharedrouter  from './routes/Share_files_router'
 const app=expresse();
-mongose.connect(" mongodb+srv://khayry:azzez"+
-"@cluster0.70l28.mongodb.net/project 0?retryWrites=true&w=majority",{
+mongose.connect(" "+
+"",{
 })
 
 app.use(morgan('dev'))
